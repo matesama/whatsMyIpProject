@@ -28,7 +28,9 @@ function App() {
   return (
     <>
       <div>
-        <p>{address}</p>
+        <h1>What´s my Ip?</h1>
+
+        <p>My Ip address is: {address}</p>
       </div>
   
     </>
