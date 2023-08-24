@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import axios from "axios";
 import Map from "./components/Map";
+import CountryInformation from './components/CountryInformation';
 
 function App() {
   const [address, setAddress] = useState(""); 
@@ -40,6 +41,7 @@ function App() {
 
         <p>My Ip address is: {address}</p>
         <Map lat={lat} lng={lng}  />
+        <CountryInformation />
       </div>
   
     </>
