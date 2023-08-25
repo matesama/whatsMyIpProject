@@ -5,11 +5,14 @@ import './App.css'
 import axios from "axios";
 import Map from "./components/Map";
 import CountryInformation from './components/CountryInformation';
+import CountryFlag from './components/countryFlag';
+import Time from "./components/Time";
 
 function App() {
   const [address, setAddress] = useState(""); 
   const [lat, setLat] = useState(0);
   const [lng, setLng] = useState(0);
+  const [countryCode, setCountryCode] = useState("");
 
   const fetchIp = async () => {
     try {
@@ -23,6 +26,7 @@ function App() {
       setAddress(response);
       setLat(getIp.data.location.lat);
       setLng(getIp.data.location.lng);
+      setCountryCode(getIp.data.location.country);
 
     } catch(error) {
       console.log(error.message);
@@ -41,7 +45,9 @@ function App() {
 
         <p>My Ip address is: {address}</p>
         <Map lat={lat} lng={lng}  />
-        <CountryInformation />
+        <CountryInformation countryCode={countryCode}/>
+        <CountryFlag countryCode={countryCode}/>
+        <Time />
       </div>
   
     </>
