@@ -11,10 +11,10 @@ const CountryInformation =  ({countryCode}) => {
             const getCountryInfos = await axios.get(`http://api.countrylayer.com/v2/all?access_key=${key}`);
             console.log(getCountryInfos);
 
-            if(!getCountryInfos) throw new Error(`Fetching data failed, due to ${getCountryInfos.status}`);
+            //if(!getCountryInfos) throw new Error(`Fetching data failed, due to ${getCountryInfos.status}`);
             const response = getCountryInfos.data;
             setCountryData(response);
-            console.log(countryCode);
+            console.log(response);
 
         } catch(error) {
             console.log(error.message);
@@ -31,17 +31,24 @@ const CountryInformation =  ({countryCode}) => {
         } 
         );
         const specificCountryInformation = countryInformation[0]; 
-       // console.log(specificCountryInformation);
+       console.log(specificCountryInformation);
+    
 
    //Ask: Why does it break it down so often?
 
-    return <div>
-        {/*<h2>Country Information:</h2>
+    return(
+        <div>
+        {Object.keys(countryInformation).length > 0
+        ?
+        <div>
+        <h2>Country Information:</h2>
         <p>Name: {specificCountryInformation.name}</p>
         <p>Region: {specificCountryInformation.region}</p>
-    <p>Capital: {specificCountryInformation.capital}</p>*/}
-        
-        </div>;
+        <p>Capital: {specificCountryInformation.capital}</p>
+        </div>
+        : null}
+        </div>
+        );
 
 }
 

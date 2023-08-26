@@ -6,7 +6,7 @@ const Map = ({lat, lng}) => {
     console.log(position);
     return <div>
       <h2>That is your Location:</h2>
-        <MapContainer center={[51.53443, 9.93228]} zoom={13} scrollWheelZoom={false} style={{ minHeight: "50vh", minWidth: "50vw" }}>
+        <MapContainer center={position} zoom={13} scrollWheelZoom={false} style={{ minHeight: "50vh", minWidth: "50vw" }}>
   <TileLayer
     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

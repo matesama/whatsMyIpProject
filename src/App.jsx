@@ -44,10 +44,12 @@ function App() {
         <h1>What´s my Ip?</h1>
 
         <p>My Ip address is: {address}</p>
+        {lat !== 0 && lng !== 0 ?  
         <Map lat={lat} lng={lng}  />
+        : null}
         <CountryInformation countryCode={countryCode}/>
         <CountryFlag countryCode={countryCode}/>
-        <Time />
+        <Time countryCode={countryCode}/>
       </div>
   
     </>
